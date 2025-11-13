@@ -1,561 +1,875 @@
-/* General Body & Container */
+/* General Body and HTML */
 body {
-    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', sans-serif;
-    line-height: 1.6;
+    font-family: 'Noto Sans KR', sans-serif; /* 한국어 폰트 추가 */
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
+    box-sizing: border-box;
+    line-height: 1.6;
     color: #333;
+    background-color: #f9f9f9;
 }
 
 .container {
-    max-width: 1100px;
-    margin: auto;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 0 20px;
-    overflow: hidden; /* Clear floats */
 }
 
-/* Navbar */
-.navbar {
-    background: #fff;
-    color: #333;
+/* Navigation Bar */
+nav {
+    background-color: #fff;
     padding: 15px 0;
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.navbar .navbar-container { /* Ensure proper container usage */
+nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.navbar .logo {
-    font-size: 1.8rem;
+.logo {
+    font-size: 28px;
     font-weight: bold;
-    color: #007bff;
+    color: #3f51b5; /* 브랜드 색상 */
+    text-decoration: none;
 }
 
-.navbar .nav-menu {
+.nav-links {
     list-style: none;
-    display: flex;
     margin: 0;
     padding: 0;
+    display: flex;
 }
 
-.navbar .nav-menu li {
-    position: relative; /* For dropdown */
+.nav-links li {
+    margin-left: 30px;
 }
 
-.navbar .nav-menu a {
-    color: #333;
+.nav-links a {
     text-decoration: none;
-    padding: 10px 15px;
-    display: block;
-    font-weight: 500;
-    transition: color 0.3s, background-color 0.3s;
-}
-
-.navbar .nav-menu a:hover,
-.navbar .nav-menu a.active {
-    color: #007bff;
-    background-color: #f8f9fa;
-    border-radius: 4px;
-}
-
-/* Dropdown specific styles */
-.dropdown-content {
-    display: none; /* Hidden by default */
-    position: absolute;
-    top: 100%; /* Position right below the dropdown button */
-    left: 0;
-    background: #fff;
-    min-width: 300px; /* Adjusted for a better look */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    z-index: 1001;
-    border-radius: 5px;
-    padding: 10px 0;
-    border: 1px solid #eee;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.dropdown:hover .dropdown-content {
-    display: grid; /* Use grid for columns */
-    grid-template-columns: repeat(2, 1fr); /* Two columns on desktop */
-    gap: 5px; /* Spacing between columns */
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.dropdown-section {
-    position: relative;
-    padding: 5px 0;
-}
-
-.region-title {
-    color: #007bff;
-    font-weight: bold;
-    padding: 8px 15px;
-    display: block;
-    text-decoration: none;
-    background-color: #f0f8ff; /* Light blue background for titles */
-    border-radius: 3px;
-    margin: 0 5px;
-    transition: background-color 0.2s;
-}
-
-.region-title:hover {
-    background-color: #e0f0ff;
-    cursor: pointer;
-}
-
-.sub-panel {
-    display: none; /* Hidden by default */
-    position: absolute;
-    top: 0;
-    left: 100%; /* Position to the right of the parent section */
-    background: #fff;
-    min-width: 180px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    z-index: 1002;
-    border-radius: 5px;
-    padding: 10px 0;
-    border: 1px solid #eee;
-    opacity: 0;
-    transform: translateX(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.dropdown-section:hover .sub-panel {
-    display: block; /* Show on hover */
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.sub-panel a {
     color: #555;
-    padding: 8px 15px;
-    text-decoration: none;
-    display: block;
-    transition: background-color 0.2s, color 0.2s;
+    font-weight: 600;
+    font-size: 17px;
+    transition: color 0.3s ease;
 }
 
-.sub-panel a:hover {
-    background-color: #f2f2f2;
-    color: #007bff;
+.nav-links a:hover {
+    color: #3f51b5;
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x500.png?text=Relaxing+Massage+Background') no-repeat center center/cover;
-    color: #fff;
+    position: relative;
     text-align: center;
-    padding: 100px 0;
-    min-height: 400px;
+    color: #fff;
+    height: 600px; /* 고정 높이 */
+    overflow: hidden; /* 이미지 넘침 방지 */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 잘리지 않고 전체를 채우도록 */
+    filter: brightness(60%); /* 이미지 어둡게 */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+}
+
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 56px;
     margin-bottom: 20px;
+    font-weight: 800;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-.hero .lead {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+.hero p {
+    font-size: 24px;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .cta-button {
-    display: inline-block;
-    background: #007bff;
+    background-color: #4CAF50; /* 긍정적인 액션 색상 */
     color: #fff;
-    padding: 12px 25px;
+    padding: 15px 35px;
+    border-radius: 50px;
     text-decoration: none;
-    border-radius: 5px;
+    font-size: 20px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .cta-button:hover {
-    background: #0056b3;
+    background-color: #45a049;
+    transform: translateY(-3px);
 }
 
 /* Services Section */
 .services {
-    padding: 40px 0;
+    padding: 80px 0;
     text-align: center;
+    background-color: #f0f2f5;
 }
 
-.service-intro h2 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
+.services h2 {
+    font-size: 38px;
     color: #333;
+    margin-bottom: 60px;
+    position: relative;
 }
-
-.service-intro p {
-    font-size: 1.1rem;
-    margin-bottom: 40px;
-    color: #555;
+.services h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background-color: #3f51b5;
+    border-radius: 2px;
 }
 
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
-.service-item {
-    background: #fff;
+.service-card {
+    background-color: #fff;
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    overflow: hidden; /* 이미지 둥근 모서리 적용을 위해 */
 }
 
-.service-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-.service-item .service-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    color: #007bff;
+.service-image {
+    width: 100%; /* 부모 너비에 맞춤 */
+    height: 200px; /* 고정 높이 */
+    object-fit: cover; /* 이미지가 잘리지 않고 채우도록 */
+    border-radius: 10px; /* 이미지 둥근 모서리 */
+    margin-bottom: 20px;
 }
 
-.service-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+.service-icon {
+    font-size: 50px;
+    color: #3f51b5;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 26px;
     color: #333;
+    margin-bottom: 15px;
 }
 
-.service-item .service-desc {
-    font-size: 1rem;
+.service-card p {
+    font-size: 17px;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* Features Section */
+.features {
+    padding: 80px 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+.features h2 {
+    font-size: 38px;
+    color: #333;
+    margin-bottom: 60px;
+    position: relative;
+}
+.features h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background-color: #3f51b5;
+    border-radius: 2px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.feature-item {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 45px;
+    color: #3f51b5;
+    margin-bottom: 20px;
+}
+
+.feature-item h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.feature-item p {
+    font-size: 16px;
     color: #666;
 }
 
-/* Contact Section */
-.contact-section {
-    padding: 60px 0;
-    background-color: #f9f9f9;
+/* Page Header (for About, Blog, Regions) */
+.page-header {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://github.com/kevs-hz/HomeSweet/raw/main/Blog.jpg') no-repeat center center/cover;
+    color: #fff;
     text-align: center;
-    margin-top: 50px;
-    border-top: 1px solid #eee;
+    padding: 100px 20px;
+    margin-bottom: 50px;
 }
 
-.contact-section h2 {
-    font-size: 2.5rem;
+.page-header h1 {
+    font-size: 48px;
     margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.page-header p {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+/* About Content */
+.about-content {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.about-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px; /* Added max-width for better control */
+    margin-right: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    height: auto; /* Ensure image scales correctly */
+}
+
+.about-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.about-text h2 {
+    font-size: 36px;
     color: #333;
+    margin-bottom: 20px;
 }
 
-.contact-section .lead {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+.about-text p {
+    font-size: 18px;
     color: #555;
+    margin-bottom: 15px;
+    line-height: 1.8;
 }
 
-.contact-info p {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+.mission-vision {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.mission-card {
+    flex: 1;
+    min-width: 300px;
+    background-color: #e8f5e9; /* 연한 녹색 배경 */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.mission-card h3 {
+    font-size: 28px;
+    color: #2e7d32; /* 진한 녹색 */
+    margin-bottom: 15px;
+}
+
+.mission-card p {
+    font-size: 17px;
     color: #444;
 }
 
-.contact-info a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
-.footer {
-    background: #333;
-    color: #fff;
-    padding: 30px 0;
+.values-section h2, .team-section h2 {
+    font-size: 38px;
     text-align: center;
-    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 60px;
+    position: relative;
+}
+.values-section h2::after, .team-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background-color: #3f51b5;
+    border-radius: 2px;
 }
 
-.footer .footer-content {
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.value-item {
+    background-color: #f5f5f5;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.value-icon {
+    font-size: 40px;
+    color: #3f51b5;
+    margin-bottom: 15px;
+}
+
+.value-item h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.value-item p {
+    font-size: 15px;
+    color: #666;
+}
+
+.team-intro {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-item {
+    background-color: #e3f2fd; /* 연한 파랑 배경 */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+}
+
+.stat-number {
+    font-size: 56px;
+    font-weight: bold;
+    color: #1976d2; /* 진한 파랑 */
+    margin-bottom: 10px;
+}
+
+.stat-item p {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Blog List */
+.blog-list {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.blog-post {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+    background-color: #fefefe;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.blog-image {
+    width: 40%;
+    height: 300px; /* 고정 높이 */
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.blog-content {
+    width: 60%;
+    padding: 30px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 15px;
+    justify-content: center;
 }
 
-.footer .footer-nav {
-    display: flex;
-    gap: 20px;
+.blog-content h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 15px;
 }
 
-.footer .footer-nav a {
+.blog-content h2 a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.blog-content h2 a:hover {
+    color: #3f51b5;
+}
+
+.blog-meta {
+    font-size: 15px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.blog-content p {
+    font-size: 17px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.read-more {
+    display: inline-block;
+    background-color: #3f51b5;
     color: #fff;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #303f9f;
+}
+
+/* Regions Content */
+.regions-content {
+    padding: 50px 0;
+    background-color: #fff;
+}
+
+.region-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.region-image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    margin-right: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    height: auto;
+}
+
+.region-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.region-text h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.region-text p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.region-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.region-card {
+    background-color: #e0f2f7; /* 연한 파랑-녹색 배경 */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+}
+
+.region-card h3 {
+    font-size: 28px;
+    color: #0288d1; /* 진한 파랑-녹색 */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.region-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.region-card li {
+    font-size: 17px;
+    color: #444;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.region-card li::before {
+    content: '✅';
+    position: absolute;
+    left: 0;
+    color: #0288d1;
+}
+
+.expansion-info {
+    text-align: center;
+    background-color: #fff3e0; /* 연한 주황 배경 */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    margin-bottom: 50px;
+}
+
+.expansion-info h2 {
+    font-size: 32px;
+    color: #e65100; /* 진한 주황 */
+    margin-bottom: 20px;
+}
+
+.expansion-info p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Google Map Section */
+.map-section {
+    padding: 80px 0;
+    background-color: #f0f2f5;
+    text-align: center;
+}
+
+.map-section h2 {
+    font-size: 38px;
+    color: #333;
+    margin-bottom: 60px;
+    position: relative;
+}
+.map-section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background-color: #3f51b5;
+    border-radius: 2px;
+}
+
+.map-container {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+.map-container iframe {
+    border-radius: 10px;
+}
+
+.map-note {
+    font-size: 15px;
+    color: #777;
+    margin-top: 15px;
+}
+
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #f4f4f4;
+    padding: 60px 0 30px;
+    font-size: 16px;
+}
+
+footer .container {
+    padding-top: 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 280px;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.footer-section h3 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.footer-section p {
+    margin-bottom: 10px;
+    color: #ccc;
+    line-height: 1.7;
+}
+
+.footer-section a {
+    color: #4CAF50; /* 연락처 링크 색상 */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.footer .footer-nav a:hover {
-    color: #007bff;
-}
-
-/* About Page Specific Styles */
-.about-hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x400.png?text=About+Us') no-repeat center center/cover;
+.footer-section a:hover {
     color: #fff;
+}
+
+.contact-link {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+
+.footer-bottom {
     text-align: center;
-    padding: 80px 0;
-}
-
-.about-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-
-.about-hero .lead {
-    font-size: 1.1rem;
-}
-
-.about-main {
-    padding: 40px 0;
-}
-
-.about-text h2 {
-    font-size: 2rem;
-    margin-top: 30px;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.about-text p {
-    margin-bottom: 20px;
-    line-height: 1.8;
-    color: #555;
-}
-
-.about-text a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.about-text a:hover {
-    text-decoration: underline;
-}
-
-/* Blog Page Specific Styles */
-.blog-hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x400.png?text=Blog') no-repeat center center/cover;
-    color: #fff;
-    text-align: center;
-    padding: 80px 0;
-}
-
-.blog-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-
-.blog-hero .lead {
-    font-size: 1.1rem;
-}
-
-.blog-no-posts {
-    text-align: center;
-    padding: 50px 0;
-    font-size: 1.2rem;
-    color: #777;
-}
-
-/* Regions Page Specific Styles */
-.region-selection-main {
-    padding: 40px 0;
-    text-align: center;
-}
-
-.region-selector-wrapper h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #333;
-}
-
-.region-form {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-.region-card {
-    background: #fff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.region-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
-.region-card h3 {
-    font-size: 1.6rem;
-    color: #007bff;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #e9ecef;
-    padding-bottom: 10px;
-}
-
-.region-card p {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.selected-region-display {
-    background: #e9ecef;
-    padding: 20px;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
-    display: none; /* Hide by default */
-    margin-top: 30px;
+    border-top: 1px solid #444;
+    padding-top: 25px;
+    font-size: 15px;
+    color: #aaa;
 }
 
 /* Responsive Design */
 @media (max-width: 992px) {
-    .navbar .nav-menu {
-        gap: 15px;
+    .nav-links li {
+        margin-left: 20px;
     }
+
     .hero h1 {
-        font-size: 2.8rem;
+        font-size: 48px;
     }
-    .hero .lead {
-        font-size: 1.1rem;
+
+    .hero p {
+        font-size: 20px;
     }
-    .service-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    .service-card, .feature-item, .value-item, .stat-item {
+        padding: 25px;
     }
-    /* Adjust dropdown for smaller desktops/tablets */
-    .dropdown:hover .dropdown-content {
-        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-        min-width: 260px;
+
+    .about-image, .region-image {
+        margin-right: 0;
+        margin-bottom: 30px;
+        max-width: 100%;
     }
-    .sub-panel {
-        min-width: 160px;
+
+    .about-section, .region-info {
+        flex-direction: column;
+    }
+
+    .blog-post {
+        flex-direction: column;
+    }
+
+    .blog-image {
+        width: 100%;
+        height: 250px;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .blog-content {
+        width: 100%;
+        padding: 25px;
     }
 }
 
 @media (max-width: 768px) {
-    .navbar .navbar-container {
+    .container {
+        padding: 0 15px;
+    }
+
+    nav .container {
         flex-direction: column;
-        align-items: flex-start;
-    }
-    .navbar .nav-menu {
-        flex-direction: column;
-        width: 100%;
-        margin-top: 15px;
-        gap: 5px;
-    }
-    .navbar .nav-menu li {
-        width: 100%;
-    }
-    .navbar .nav-menu a {
-        text-align: left;
-        padding: 10px 0;
-        border-bottom: 1px solid #eee;
-    }
-    .navbar .nav-menu a:hover,
-    .navbar .nav-menu a.active {
-        background-color: transparent;
-        color: #007bff;
     }
 
-    /* Dropdown on mobile - make it full width and stack */
-    .dropdown-content {
-        position: static; /* Remove absolute positioning */
-        width: 100%;
-        box-shadow: none;
-        border: none;
-        padding: 5px 0;
-        grid-template-columns: 1fr; /* Stack columns */
-        opacity: 1; /* Always visible if dropdown is active */
-        transform: translateY(0);
-        margin-top: 5px;
-        background-color: #f8f8f8; /* Light background for visibility */
+    .nav-links {
+        margin-top: 20px;
+        justify-content: center;
     }
 
-    .dropdown-section {
-        border-bottom: 1px solid #eee;
-        margin: 0 10px;
-        padding: 5px 0;
+    .nav-links li {
+        margin: 0 15px;
     }
 
-    .region-title {
-        background-color: transparent; /* No special background */
-        text-align: left;
-        margin: 0;
-        border-radius: 0;
-        padding: 10px 0;
-        color: #333; /* Default color */
-    }
-    .region-title:hover {
-        color: #007bff;
-        background-color: transparent;
-    }
-
-    .sub-panel {
-        position: static; /* Remove absolute positioning */
-        width: auto;
-        left: auto;
-        margin-left: 15px; /* Indent sub-panel */
-        box-shadow: none;
-        border: none;
-        background-color: transparent;
-        padding: 0;
-        opacity: 1; /* Always visible if parent is hovered (on desktop) / active (on mobile) */
-        transform: translateX(0);
-    }
-
-    .sub-panel a {
-        padding: 5px 0;
-        font-size: 0.9rem;
+    .logo {
+        font-size: 24px;
     }
 
     .hero {
-        padding: 60px 0;
+        height: 450px;
     }
+
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 38px;
     }
-    .hero .lead {
-        font-size: 1rem;
+
+    .hero p {
+        font-size: 18px;
     }
-    .service-grid {
+
+    .cta-button {
+        padding: 12px 30px;
+        font-size: 18px;
+    }
+
+    .services h2, .features h2, .page-header h1,
+    .about-text h2, .values-section h2, .team-section h2,
+    .region-text h2, .expansion-info h2, .map-section h2 {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .page-header {
+        padding: 80px 15px;
+    }
+    .page-header p {
+        font-size: 18px;
+    }
+
+    .mission-vision, .values-grid, .stats-grid, .region-list-grid {
         grid-template-columns: 1fr;
     }
-    .about-hero, .blog-hero {
-        padding: 50px 0;
+
+    .blog-content h2 {
+        font-size: 26px;
     }
-    .about-hero h1, .blog-hero h1 {
-        font-size: 2.5rem;
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        min-width: unset;
+        padding: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        flex-wrap: wrap;
+        margin-top: 15px;
+    }
+    .nav-links li {
+        margin: 5px 10px;
+    }
+
+    .hero {
+        height: 350px;
+    }
+    .hero h1 {
+        font-size: 30px;
+    }
+    .hero p {
+        font-size: 16px;
+    }
+
+    .services h2, .features h2, .page-header h1,
+    .about-text h2, .values-section h2, .team-section h2,
+    .region-text h2, .expansion-info h2, .map-section h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .service-card, .feature-item, .value-item, .stat-item, .mission-card, .region-card {
+        padding: 20px;
+    }
+
+    .service-icon, .feature-icon, .value-icon {
+        font-size: 40px;
+    }
+
+    .service-card h3, .feature-item h3, .value-item h3, .mission-card h3, .region-card h3 {
+        font-size: 20px;
+    }
+
+    .stat-number {
+        font-size: 48px;
+    }
+
+    .blog-content h2 {
+        font-size: 22px;
     }
 }
