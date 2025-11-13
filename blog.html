@@ -1,163 +1,92 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>블로그 - KKMassage | ㅋㅋ마사지</title>
-    <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블로그 - 홈스윗</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar-container container">
-            <div class="logo">KKMassage | ㅋㅋ마사지</div>
-            <ul class="nav-menu">
+    <!-- 네비게이션 -->
+    <nav>
+        <div class="container">
+            <div class="logo">🏠 홈스윗</div>
+            <ul class="nav-links">
                 <li><a href="index.html">홈</a></li>
                 <li><a href="about.html">회사소개</a></li>
-                <li class="dropdown">
-                    <a href="regions.html" class="dropbtn">서비스 지역</a>
-                    <div class="dropdown-content">
-                        <div class="dropdown-section">
-                            <a class="region-title" href="regions.html#seoul">서울특별시</a>
-                            <div class="sub-panel">
-                                <a href="regions.html#seoul_gangnam">강남구</a>
-                                <a href="regions.html#seoul_seocho">서초구</a>
-                                <a href="regions.html#seoul_songpa">송파구</a>
-                                <a href="regions.html#seoul_yongsan">용산구</a>
-                                <a href="regions.html#seoul_mapo">마포구</a>
-                                <a href="regions.html#seoul_yeongdeungpo">영등포구</a>
-                                <a href="regions.html#seoul_jongno">종로구</a>
-                                <a href="regions.html#seoul_jung">중구</a>
-                            </div>
-                        </div>
-                        <div class="dropdown-section">
-                            <a class="region-title" href="regions.html#gyeonggi">경기도</a>
-                            <div class="sub-panel">
-                                <a href="regions.html#gyeonggi_seongnam">성남시</a>
-                                <a href="regions.html#gyeonggi_goyang">고양시</a>
-                                <a href="regions.html#gyeonggi_suwon">수원시</a>
-                                <a href="regions.html#gyeonggi_yongin">용인시</a>
-                                <a href="regions.html#gyeonggi_hanam">하남시</a>
-                                <a href="regions.html#gyeonggi_gwacheon">과천시</a>
-                                <a href="regions.html#gyeonggi_gwangmyeong">광명시</a>
-                            </div>
-                        </div>
-                        <div class="dropdown-section">
-                            <a class="region-title" href="regions.html#incheon">인천광역시</a>
-                            <div class="sub-panel">
-                                <a href="regions.html#incheon_yeonsu">연수구</a>
-                                <a href="regions.html#incheon_namdong">남동구</a>
-                                <a href="regions.html#incheon_bupyeong">부평구</a>
-                                <a href="regions.html#incheon_gyeyang">계양구</a>
-                            </div>
-                        </div>
-                        <div class="dropdown-section">
-                            <a class="region-title" href="regions.html#other">기타 주요 지역</a>
-                            <div class="sub-panel">
-                                <a href="regions.html#other_busan">부산광역시</a>
-                                <a href="regions.html#other_daegu">대구광역시</a>
-                                <a href="regions.html#other_daejeon">대전광역시</a>
-                                <a href="regions.html#other_gwangju">광주광역시</a>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="blog.html" class="active">블로그</a></li>
-                <li><a href="index.html#contact">예약</a></li>
+                <li><a href="regions.html">서비스 지역</a></li>
+                <li><a href="blog.html">블로그</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="about-hero">
+    <!-- 블로그 헤더 -->
+    <section class="page-header">
         <div class="container">
             <h1>블로그</h1>
-            <p class="lead">지역별 기사와 팁을 확인하세요</p>
+            <p>홈스윗의 최신 소식과 유용한 정보</p>
         </div>
     </section>
 
-    <main class="container services" id="blogContent"></main>
+    <!-- 블로그 목록 -->
+    <section class="blog-list">
+        <div class="container">
+            <div class="blog-post">
+                <img src="https://github.com/kevs-hz/HomeSweet/raw/main/Blog.jpg" alt="블로그 이미지" class="blog-image">
+                <div class="blog-content">
+                    <h2><a href="#">[새 소식] 홈스윗, 서비스 지역 확대 안내!</a></h2>
+                    <p class="blog-meta">2024년 10월 26일 | 관리자</p>
+                    <p>안녕하세요, 홈스윗입니다. 고객님들의 성원에 힘입어 홈스윗이 드디어 서비스 지역을 확대하게 되었습니다! 이제 더 많은 지역에서 홈스윗의 프리미엄 가사도우미 서비스를 만나보세요...</p>
+                    <a href="#" class="read-more">더 읽기</a>
+                </div>
+            </div>
+            <div class="blog-post">
+                <img src="https://github.com/kevs-hz/HomeSweet/raw/main/Service1.jpg" alt="청소 팁 이미지" class="blog-image">
+                <div class="blog-content">
+                    <h2><a href="#">우리 집을 더 깨끗하게 만드는 5가지 청소 팁</a></h2>
+                    <p class="blog-meta">2024년 10월 20일 | 관리자</p>
+                    <p>매일 청소를 해도 만족스럽지 않으셨나요? 홈스윗이 알려드리는 5가지 청소 팁으로 우리 집을 더욱 효율적이고 깨끗하게 관리해보세요...</p>
+                    <a href="#" class="read-more">더 읽기</a>
+                </div>
+            </div>
+            <div class="blog-post">
+                <img src="https://github.com/kevs-hz/HomeSweet/raw/main/Service2.jpg" alt="가사도우미 선택 가이드 이미지" class="blog-image">
+                <div class="blog-content">
+                    <h2><a href="#">좋은 가사도우미를 선택하는 방법</a></h2>
+                    <p class="blog-meta">2024년 10월 15일 | 관리자</p>
+                    <p>가사도우미 서비스, 어디서부터 시작해야 할지 막막하신가요? 홈스윗이 좋은 가사도우미를 선택하는 데 필요한 핵심 가이드를 제공합니다...</p>
+                    <a href="#" class="read-more">더 읽기</a>
+                </div>
+            </div>
+            <!-- 더 많은 블로그 게시물을 여기에 추가할 수 있습니다 -->
+        </div>
+    </section>
 
-    <footer class="footer">
-        <div class="footer-content container">
-            <p>&copy; <span id="year"></span> KKMassage | ㅋㅋ마사지. 모든 권리 보유.</p>
-            <nav class="footer-nav">
-                <a href="index.html">홈</a>
-                <a href="about.html">회사소개</a>
-                <a href="regions.html">지역선택</a>
-                <a href="blog.html">블로그</a>
-                <a href="index.html#contact">예약</a>
-            </nav>
+    <!-- 푸터 -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>홈스윗</h3>
+                    <p>깨끗한 집, 행복한 삶을 만들어갑니다</p>
+                </div>
+                <div class="footer-section">
+                    <h3>연락처</h3>
+                    <p>📧 info@homesweet.kr</p>
+                    <p><a href="tel:010-XXXX-XXXX" class="contact-link">📞 010-XXXX-XXXX</a></p>
+                    <p><a href="https://open.kakao.com/o/YourKakaoLink" target="_blank" class="contact-link">💬 KakaoTalk 채팅</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>운영시간</h3>
+                    <p>월-금: 09:00 - 18:00</p>
+                    <p>토: 09:00 - 15:00</p>
+                    <p>일요일 및 공휴일 휴무</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 홈스윗. All rights reserved.</p>
+            </div>
         </div>
     </footer>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        const blogData = {
-            "서울특별시": {
-                "강남구": [
-                    { id: 'seoul_gangnam_1', title: '강남구 최고의 출장 마사지 팁', excerpt: '강남구에서 만족도가 높은 마사지 업체 추천 및 예약 요령', content: '<p>강남구 상세 글 내용: 바쁜 일상 속에서 출장 마사지가 필수입니다. 우리 서비스는 개인 맞춤 케어를 제공합니다.</p><p>예약 전 팁: 가능한 시간대, 준비물 안내 등.</p>' },
-                    { id: 'seoul_gangnam_2', title: '강남 힐링 스팟 소개', excerpt: '마사지 받기 전 힐링 할 만한 장소', content: '<p>강남 힐링 스팟 상세: 카페, 공원 등 추천.</p>' }
-                ],
-                "종로구": [
-                    { id: 'seoul_jongro_1', title: '종로구 출장 마사지 가이드', excerpt: '종로구 상권 특성에 맞춘 서비스 팁', content: '<p>종로구 상세 내용: 역사적인 지역에서 편안한 마사지 팁.</p>' }
-                ]
-            },
-            "부산광역시": {
-                "해운대구": [
-                    { id: 'busan_haeundae_1', title: '해운대 바닷가 후 마사지', excerpt: '해운대의 추천 마사지 코스', content: '<p>해운대 상세 내용: 바다 전망과 함께 힐링하는 방법.</p>' }
-                ]
-            }
-        };
-
-        function getQueryParams() {
-            const params = {};
-            window.location.search.substring(1).split("&").forEach(param => {
-                const parts = param.split("=");
-                if (parts[0]) {
-                    params[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1] || "");
-                }
-            });
-            return params;
-        }
-
-        function renderBlog() {
-            const container = document.getElementById('blogContent');
-            const queryParams = getQueryParams();
-            const province = queryParams['province'];
-            const district = queryParams['district'];
-            const post = queryParams['post'];
-
-            if (!province || !district) {
-                container.innerHTML = '<p class=\"blog-no-posts\">지역을 선택하시면 관련 블로그 글을 확인하실 수 있습니다.<br>상단 메뉴의 "서비스 지역"에서 지역을 선택해주세요.</p>';
-                return;
-            }
-
-            const posts = (blogData[province] && blogData[province][district]) ? blogData[province][district] : [];
-
-            if (post) {
-                const selectedPost = posts.find(p => p.id === post);
-                if (selectedPost) {
-                    container.innerHTML = '<article class=\"about-main\"><h2 class=\"section-title\">' + selectedPost.title + '</h2><p class=\"lead\">' + province + ' &gt; ' + district + '</p><div class=\"about-text\">' + selectedPost.content + '</div><p style=\"margin-top:18px;\"><a class=\"cta-button\" href=\"blog.html?province=' + encodeURIComponent(province) + '&district=' + encodeURIComponent(district) + '\">목록으로 돌아가기</a></p></article>';
-                } else {
-                    container.innerHTML = '<p class=\"blog-no-posts\">요청하신 글을 찾을 수 없습니다.</p>';
-                }
-                return;
-            }
-
-            container.innerHTML = '<h2 class=\"section-title\">' + province + ' &gt; ' + district + ' 글 목록</h2><p class=\"section-intro\">해당 지역의 관련 글들을 확인하세요.</p>';
-            if (posts.length === 0) {
-                container.innerHTML += '<p class=\"blog-no-posts\">해당 지역에 게시물이 없습니다. 더 많은 콘텐츠를 기대해주세요!</p>';
-                return;
-            }
-            posts.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'service-item';
-                card.innerHTML = '<div class=\"service-content\"><h3>' + item.title + '</h3><p class=\"service-desc\">' + item.excerpt + '</p><a class=\"cta-button\" href=\"blog.html?province=' + encodeURIComponent(province) + '&district=' + encodeURIComponent(district) + '&post=' + encodeURIComponent(item.id) + '\" style=\"margin-top:12px;display:inline-block;\">읽어보기</a></div>';
-                container.appendChild(card);
-            });
-        }
-
-        renderBlog();
-    </script>
 </body>
 </html>
