@@ -3,90 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>블로그 - 홈스윗</title>
+    <title>블로그 - KKMassage | ㅋㅋ마사지</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 네비게이션 -->
-    <nav>
-        <div class="container">
-            <div class="logo">🏠 홈스윗</div>
-            <ul class="nav-links">
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">KKMassage | ㅋㅋ마사지</a>
+            <button id="nav-toggle" aria-label="메뉴 열기">☰</button>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html">홈</a></li>
                 <li><a href="about.html">회사소개</a></li>
-                <li><a href="regions.html">서비스 지역</a></li>
-                <li><a href="blog.html">블로그</a></li>
+                <li class="has-dropdown">
+                    <a href="regions.html" class="drop-toggle">서비스 지역 ▾</a>
+                    <ul class="dropdown">
+                        <li class="has-submenu">
+                            <a href="#">서울특별시 ▸</a>
+                            <ul class="submenu">
+                                <li><a href="blog.html?region=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C-%EA%B0%95%EB%82%A8%EA%B5%AC">강남구</a></li>
+                                <li><a href="blog.html?region=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C-%EC%84%9C%EC%B4%88%EA%B5%AC">서초구</a></li>
+                                <li><a href="blog.html?region=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C-%EC%86%A1%ED%8C%8C%EA%B5%AC">송파구</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="#">경기도 ▸</a>
+                            <ul class="submenu">
+                                <li><a href="blog.html?region=%EA%B2%BD%EA%B8%B0%EB%8F%84-%EC%9D%80%ED%98%95%EC%8B%9C">은평시</a></li>
+                                <li><a href="blog.html?region=%EA%B2%BD%EA%B8%B0%EB%8F%84-%EC%95%84%EB%8C%80%EA%B5%AC">아대구</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="blog.html?region=%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C">인천광역시</a></li>
+                    </ul>
+                </li>
+                <li><a href="blog.html" class="active">블로그</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- 블로그 헤더 -->
-    <section class="page-header">
+    <section class="blog-hero">
         <div class="container">
-            <h1>블로그</h1>
-            <p>홈스윗의 최신 소식과 유용한 정보</p>
+            <h1>최신 소식과 팁</h1>
+            <p>마사지와 힐링에 대한 최신 정보와 서비스 업데이트</p>
         </div>
     </section>
 
-    <!-- 블로그 목록 -->
-    <section class="blog-list">
+    <section class="blog-posts">
         <div class="container">
-            <div class="blog-post">
-                <img src="https://github.com/kevs-hz/HomeSweet/raw/main/Blog.jpg" alt="블로그 이미지" class="blog-image">
-                <div class="blog-content">
-                    <h2><a href="#">[새 소식] 홈스윗, 서비스 지역 확대 안내!</a></h2>
-                    <p class="blog-meta">2024년 10월 26일 | 관리자</p>
-                    <p>안녕하세요, 홈스윗입니다. 고객님들의 성원에 힘입어 홈스윗이 드디어 서비스 지역을 확대하게 되었습니다! 이제 더 많은 지역에서 홈스윗의 프리미엄 가사도우미 서비스를 만나보세요...</p>
-                    <a href="#" class="read-more">더 읽기</a>
-                </div>
+            <div class="posts-grid">
+                <article class="post-card">
+                    <h2>강남구 최고의 마사지 추천</h2>
+                    <p class="post-meta">2023-10-15 | 서울특별시 강남구</p>
+                    <p>바쁜 일상 속에서 휴식을 찾는 분들을 위한 강남구 마사지 가이드...</p>
+                    <a href="#" class="btn btn-secondary">자세히 보기</a>
+                </article>
+                <article class="post-card">
+                    <h2>스웨디시 마사지의 효과</h2>
+                    <p class="post-meta">2023-10-10 | 경기도 은평시</p>
+                    <p>스웨디시 마사지가 몸과 마음에 미치는 긍정적인 영향에 대해 알아보세요...</p>
+                    <a href="#" class="btn btn-secondary">자세히 보기</a>
+                </article>
+                <article class="post-card">
+                    <h2>인천광역시 홈 서비스 론칭</h2>
+                    <p class="post-meta">2023-10-05 | 인천광역시</p>
+                    <p>인천 지역 고객님들을 위한 새로운 홈 마사지 서비스 소개...</p>
+                    <a href="#" class="btn btn-secondary">자세히 보기</a>
+                </article>
+                <!-- 可以添加更多文章 -->
             </div>
-            <div class="blog-post">
-                <img src="https://github.com/kevs-hz/HomeSweet/raw/main/Service1.jpg" alt="청소 팁 이미지" class="blog-image">
-                <div class="blog-content">
-                    <h2><a href="#">우리 집을 더 깨끗하게 만드는 5가지 청소 팁</a></h2>
-                    <p class="blog-meta">2024년 10월 20일 | 관리자</p>
-                    <p>매일 청소를 해도 만족스럽지 않으셨나요? 홈스윗이 알려드리는 5가지 청소 팁으로 우리 집을 더욱 효율적이고 깨끗하게 관리해보세요...</p>
-                    <a href="#" class="read-more">더 읽기</a>
-                </div>
+            <div class="pagination">
+                <a href="#" class="btn">이전</a>
+                <span>1 / 3</span>
+                <a href="#" class="btn">다음</a>
             </div>
-            <div class="blog-post">
-                <img src="https://github.com/kevs-hz/HomeSweet/raw/main/Service2.jpg" alt="가사도우미 선택 가이드 이미지" class="blog-image">
-                <div class="blog-content">
-                    <h2><a href="#">좋은 가사도우미를 선택하는 방법</a></h2>
-                    <p class="blog-meta">2024년 10월 15일 | 관리자</p>
-                    <p>가사도우미 서비스, 어디서부터 시작해야 할지 막막하신가요? 홈스윗이 좋은 가사도우미를 선택하는 데 필요한 핵심 가이드를 제공합니다...</p>
-                    <a href="#" class="read-more">더 읽기</a>
-                </div>
-            </div>
-            <!-- 더 많은 블로그 게시물을 여기에 추가할 수 있습니다 -->
         </div>
     </section>
 
-    <!-- 푸터 -->
-    <footer id="contact">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>홈스윗</h3>
-                    <p>깨끗한 집, 행복한 삶을 만들어갑니다</p>
-                </div>
-                <div class="footer-section">
-                    <h3>연락처</h3>
-                    <p>📧 info@homesweet.kr</p>
-                    <p><a href="tel:010-XXXX-XXXX" class="contact-link">📞 010-XXXX-XXXX</a></p>
-                    <p><a href="https://open.kakao.com/o/YourKakaoLink" target="_blank" class="contact-link">💬 KakaoTalk 채팅</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>운영시간</h3>
-                    <p>월-금: 09:00 - 18:00</p>
-                    <p>토: 09:00 - 15:00</p>
-                    <p>일요일 및 공휴일 휴무</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 홈스윗. All rights reserved.</p>
+            <p>&copy; <span id="year"></span> KKMassage. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="about.html">회사소개</a> |
+                <a href="regions.html">서비스 지역</a> |
+                <a href="blog.html">블로그</a>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Dropdown and nav functionality (same as index.html)
+        (function(){
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            if(navToggle && navMenu){
+                navToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
+            }
+            function setupDropdownToggles(){
+                document.querySelectorAll('.has-dropdown > .drop-toggle').forEach(btn => {
+                    btn.addEventListener('click', function(e){
+                        const li = this.parentElement;
+                        if(window.innerWidth <= 900){
+                            e.preventDefault();
+                            li.classList.toggle('open');
+                        }
+                    });
+                });
+                document.querySelectorAll('.has-submenu > a').forEach(btn => {
+                    btn.addEventListener('click', function(e){
+                        const li = this.parentElement;
+                        if(window.innerWidth <= 900){
+                            e.preventDefault();
+                            li.classList.toggle('open');
+                        }
+                    });
+                });
+            }
+            setupDropdownToggles();
+            window.addEventListener('resize', setupDropdownToggles);
+
+            document.querySelectorAll('.nav-menu a').forEach(a => {
+                a.addEventListener('click', () => {
+                    const menu = document.getElementById('nav-menu');
+                    if(menu && menu.classList.contains('open')) menu.classList.remove('open');
+                });
+            });
+
+            document.getElementById('year').textContent = new Date().getFullYear();
+        })();
+    </script>
 </body>
 </html>
