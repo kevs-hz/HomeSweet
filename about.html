@@ -3,130 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회사소개 - 홈스윗</title>
+    <title>회사소개 - KKMassage | ㅋㅋ마사지</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 네비게이션 -->
-    <nav>
-        <div class="container">
-            <div class="logo">🏠 홈스윗</div>
-            <ul class="nav-links">
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">KKMassage | ㅋㅋ마사지</a>
+            <button id="nav-toggle" aria-label="메뉴 열기">☰</button>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="index.html">홈</a></li>
-                <li><a href="about.html">회사소개</a></li>
-                <li><a href="regions.html">서비스 지역</a></li>
+                <li><a href="about.html" class="active">회사소개</a></li>
+                <li class="has-dropdown">
+                    <a href="regions.html" class="drop-toggle">서비스 지역 ▾</a>
+                    <ul class="dropdown">
+                        <li class="has-submenu">
+                            <a href="#">서울특별시 ▸</a>
+                            <ul class="submenu">
+                                <li><a href="blog.html?region=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C-%EA%B0%95%EB%82%A8%EA%B5%AC">강남구</a></li>
+                                <li><a href="blog.html?region=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C-%EC%84%9C%EC%B4%88%EA%B5%AC">서초구</a></li>
+                                <li><a href="blog.html?region=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C-%EC%86%A1%ED%8C%8C%EA%B5%AC">송파구</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="#">경기도 ▸</a>
+                            <ul class="submenu">
+                                <li><a href="blog.html?region=%EA%B2%BD%EA%B8%B0%EB%8F%84-%EC%9D%80%ED%98%95%EC%8B%9C">은평시</a></li>
+                                <li><a href="blog.html?region=%EA%B2%BD%EA%B8%B0%EB%8F%84-%EC%95%84%EB%8C%80%EA%B5%AC">아대구</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="blog.html?region=%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C">인천광역시</a></li>
+                    </ul>
+                </li>
                 <li><a href="blog.html">블로그</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- 회사소개 헤더 -->
-    <section class="page-header">
+    <section class="about-hero">
         <div class="container">
-            <h1>회사소개</h1>
-            <p>홈스윗의 이야기를 들려드립니다</p>
+            <h1>KKMassage에 대해</h1>
+            <p>고객님의 건강과 휴식을 최우선으로 하는 프리미엄 마사지 서비스</p>
         </div>
     </section>
 
-    <!-- 회사 소개 내용 -->
     <section class="about-content">
         <div class="container">
-            <div class="about-section">
-                <img src="https://github.com/kevs-hz/HomeSweet/raw/main/AboutUs.jpg" alt="회사 소개" class="about-image">
+            <div class="about-grid">
                 <div class="about-text">
-                    <h2>홈스윗의 시작</h2>
-                    <p>홈스윗은 2020년, "모든 가정이 깨끗하고 행복한 공간이 되어야 한다"는 믿음으로 시작되었습니다. 우리는 단순히 청소를 넘어서, 고객님의 삶의 질을 향상시키는 것을 목표로 합니다.</p>
-                    <p>3년간 2,000개 이상의 가정에 서비스를 제공하며, 고객 만족도 98%를 달성했습니다. 우리의 성공 비결은 전문성, 신뢰성, 그리고 고객 중심의 서비스입니다.</p>
+                    <h2>우리 회사</h2>
+                    <p>KKMassage는 2020년 설립된 이래로 홈 마사지 서비스를 전문으로 하는 회사입니다. 전문 테라피스트 팀과 함께 서울, 경기, 인천 등 주요 지역에서 편리한 서비스를 제공하고 있습니다.</p>
+                    <h3>미션</h3>
+                    <p>일상 속 작은 행복을 선사하며, 고객님의 몸과 마음을 치유합니다.</p>
+                    <h3>비전</h3>
+                    <p>최고의 마사지 경험으로 No.1 홈 서비스 브랜드가 됩니다.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/500x300?text=회사+이미지" alt="회사 소개 이미지" style="width: 100%; border-radius: 8px;">
                 </div>
             </div>
-
-            <div class="mission-vision">
-                <div class="mission-card">
-                    <h3>🎯 우리의 미션</h3>
-                    <p>전문적이고 신뢰할 수 있는 가사도우미 서비스를 통해 고객님의 소중한 시간을 돌려드리고, 더 나은 삶의 질을 제공합니다.</p>
-                </div>
-                <div class="mission-card">
-                    <h3>👁️ 우리의 비전</h3>
-                    <p>대한민국 최고의 가사도우미 서비스 기업이 되어, 모든 가정이 깨끗하고 행복한 공간이 되도록 돕습니다.</p>
-                </div>
-            </div>
-
-            <div class="values-section">
-                <h2>핵심 가치</h2>
-                <div class="values-grid">
-                    <div class="value-item">
-                        <div class="value-icon">🤝</div>
-                        <h3>신뢰</h3>
-                        <p>철저한 신원 확인과 교육을 통해 고객님의 신뢰를 얻습니다</p>
-                    </div>
-                    <div class="value-item">
-                        <div class="value-icon">⭐</div>
-                        <h3>전문성</h3>
-                        <p>체계적인 교육 프로그램으로 최고 수준의 서비스를 제공합니다</p>
-                    </div>
-                    <div class="value-item">
-                        <div class="value-icon">❤️</div>
-                        <h3>배려</h3>
-                        <p>고객님의 상황과 필요를 이해하고 맞춤 서비스를 제공합니다</p>
-                    </div>
-                    <div class="value-item">
-                        <div class="value-icon">🌱</div>
-                        <h3>성장</h3>
-                        <p>지속적인 개선과 혁신으로 더 나은 서비스를 만들어갑니다</p>
-                    </div>
-                </div>
-            </div>
-
             <div class="team-section">
                 <h2>우리 팀</h2>
-                <p class="team-intro">홈스윗의 모든 팀원은 고객님의 만족을 위해 최선을 다합니다</p>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <p>전문 청소 인력</p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://via.placeholder.com/150?text=팀원1" alt="팀원 1">
+                        <h4>김 전문가</h4>
+                        <p>10년 경력 스웨디시 전문</p>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">2,000+</div>
-                        <p>서비스 제공 가정</p>
+                    <div class="team-member">
+                        <img src="https://via.placeholder.com/150?text=팀원2" alt="팀원 2">
+                        <h4>이 테라피스트</h4>
+                        <p>타이 마사지 마스터</p>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">98%</div>
-                        <p>고객 만족도</p>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">3년</div>
-                        <p>업계 경험</p>
-                    </div>
+                    <!-- 添加更多团队成员 -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 푸터 -->
-    <footer id="contact">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>홈스윗</h3>
-                    <p>깨끗한 집, 행복한 삶을 만들어갑니다</p>
-                </div>
-                <div class="footer-section">
-                    <h3>연락처</h3>
-                    <p>📧 info@homesweet.kr</p>
-                    <p><a href="tel:010-XXXX-XXXX" class="contact-link">📞 010-XXXX-XXXX</a></p>
-                    <p><a href="https://open.kakao.com/o/YourKakaoLink" target="_blank" class="contact-link">💬 KakaoTalk 채팅</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>운영시간</h3>
-                    <p>월-금: 09:00 - 18:00</p>
-                    <p>토: 09:00 - 15:00</p>
-                    <p>일요일 및 공휴일 휴무</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 홈스윗. All rights reserved.</p>
+            <p>&copy; <span id="year"></span> KKMassage. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="about.html">회사소개</a> |
+                <a href="regions.html">서비스 지역</a> |
+                <a href="blog.html">블로그</a>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Dropdown and nav functionality (same as others)
+        (function(){
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            if(navToggle && navMenu){
+                navToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
+            }
+            function setupDropdownToggles(){
+                document.querySelectorAll('.has-dropdown > .drop-toggle').forEach(btn => {
+                    btn.addEventListener('click', function(e){
+                        const li = this.parentElement;
+                        if(window.innerWidth <= 900){
+                            e.preventDefault();
+                            li.classList.toggle('open');
+                        }
+                    });
+                });
+                document.querySelectorAll('.has-submenu > a').forEach(btn => {
+                    btn.addEventListener('click', function(e){
+                        const li = this.parentElement;
+                        if(window.innerWidth <= 900){
+                            e.preventDefault();
+                            li.classList.toggle('open');
+                        }
+                    });
+                });
+            }
+            setupDropdownToggles();
+            window.addEventListener('resize', setupDropdownToggles);
+
+            document.querySelectorAll('.nav-menu a').forEach(a => {
+                a.addEventListener('click', () => {
+                    const menu = document.getElementById('nav-menu');
+                    if(menu && menu.classList.contains('open')) menu.classList.remove('open');
+                });
+            });
+
+            document.getElementById('year').textContent = new Date().getFullYear();
+        })();
+    </script>
 </body>
 </html>
