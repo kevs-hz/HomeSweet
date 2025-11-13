@@ -3,134 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>홈스윗 - 프리미엄 가사도우미 서비스</title>
+    <title>홈 - KKMassage | ㅋㅋ마사지</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 네비게이션 -->
-    <nav>
-        <div class="container">
-            <div class="logo">🏠 홈스윗</div>
-            <ul class="nav-links">
-                <li><a href="index.html">홈</a></li>
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="logo">KKMassage | ㅋㅋ마사지</a>
+            <button id="nav-toggle" aria-label="메뉴 열기">☰</button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="active">홈</a></li>
                 <li><a href="about.html">회사소개</a></li>
-                <li><a href="regions.html">서비스 지역</a></li>
+                <li class="has-dropdown">
+                    <a href="regions.html" class="drop-toggle">서비스 지역 ▾</a>
+                    <ul class="dropdown">
+                        <li class="has-submenu">
+                            <a href="#">서울특별시 ▸</a>
+                            <ul class="submenu">
+                                <li><a href="blog.html?region=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C-%EA%B0%95%EB%82%A8%EA%B5%AC">강남구</a></li>
+                                <li><a href="blog.html?region=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C-%EC%84%9C%EC%B4%88%EA%B5%AC">서초구</a></li>
+                                <li><a href="blog.html?region=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C-%EC%86%A1%ED%8C%8C%EA%B5%AC">송파구</a></li>
+                                <!-- 添加更多区如果需要 -->
+                            </ul>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="#">경기도 ▸</a>
+                            <ul class="submenu">
+                                <li><a href="blog.html?region=%EA%B2%BD%EA%B8%B0%EB%8F%84-%EC%9D%80%ED%98%95%EC%8B%9C">은평시</a></li>
+                                <li><a href="blog.html?region=%EA%B2%BD%EA%B8%B0%EB%8F%84-%EC%95%84%EB%8C%80%EA%B5%AC">아대구</a></li>
+                                <!-- 添加更多 -->
+                            </ul>
+                        </li>
+                        <li><a href="blog.html?region=%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C">인천광역시</a></li>
+                        <!-- 添加更多二级如 부산광역시 等 -->
+                    </ul>
+                </li>
                 <li><a href="blog.html">블로그</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- 히어로 섹션 -->
     <section class="hero">
-        <img src="https://github.com/kevs-hz/HomeSweet/raw/main/Banner.jpg" alt="홈스윗 배너" class="hero-image">
         <div class="hero-content">
-            <h1>깨끗한 집, 행복한 삶</h1>
-            <p>전문적이고 신뢰할 수 있는 가사도우미 서비스</p>
-            <a href="#contact" class="cta-button">상담 신청하기</a>
+            <h1>당신의 완벽한 휴식을 위한 마사지</h1>
+            <p>프리미엄 마사지 서비스로 일상의 피로를 풀어드립니다</p>
+            <a href="regions.html" class="btn btn-primary">서비스 지역 보기</a>
         </div>
     </section>
 
-    <!-- 서비스 소개 -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>우리의 서비스</h2>
-            <div class="service-grid">
-                <div class="service-card">
-                    <img src="https://github.com/kevs-hz/HomeSweet/raw/main/Service1.jpg" alt="일반 청소" class="service-image">
-                    <div class="service-icon">🧹</div>
-                    <h3>일반 청소</h3>
-                    <p>주 1~2회 정기적인 청소로 항상 깨끗한 집을 유지하세요</p>
-                </div>
-                <div class="service-card">
-                    <img src="https://github.com/kevs-hz/HomeSweet/raw/main/Service2.jpg" alt="특별 청소" class="service-image">
-                    <div class="service-icon">✨</div>
-                    <h3>특별 청소</h3>
-                    <p>이사, 대청소 등 특별한 날을 위한 완벽한 청소</p>
-                </div>
-                <div class="service-card">
-                    <img src="https://github.com/kevs-hz/HomeSweet/raw/main/Service3.jpg" alt="맞춤 서비스" class="service-image">
-                    <div class="service-icon">🎯</div>
-                    <h3>맞춤 서비스</h3>
-                    <p>고객님의 필요에 맞춘 개인화된 서비스 제공</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 특징 -->
     <section class="features">
         <div class="container">
-            <h2>왜 홈스윗인가?</h2>
+            <h2>우리의 서비스</h2>
             <div class="feature-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">✅</div>
-                    <h3>검증된 전문가</h3>
-                    <p>철저한 신원 확인과 교육을 거친 전문 인력</p>
+                <div class="feature-card">
+                    <h3>🏡 홈 서비스</h3>
+                    <p>편안한 집에서 전문 마사지를 받으세요</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">💯</div>
-                    <h3>만족 보장</h3>
-                    <p>서비스에 만족하지 않으시면 재방문 보장</p>
+                <div class="feature-card">
+                    <h3>⭐ 전문 테라피스트</h3>
+                    <p>경험 많은 전문가들이 최상의 서비스를 제공합니다</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔒</div>
-                    <h3>보험 가입</h3>
-                    <p>모든 서비스는 보험으로 보호됩니다</p>
+                <div class="feature-card">
+                    <h3>🕐 유연한 시간</h3>
+                    <p>고객님의 일정에 맞춰 예약 가능합니다</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">⏰</div>
-                    <h3>유연한 스케줄</h3>
-                    <p>고객님의 일정에 맞춘 서비스 제공</p>
+                <div class="feature-card">
+                    <h3>💆 다양한 코스</h3>
+                    <p>스웨디시, 타이, 아로마 등 다양한 마사지 코스</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 구글 지도 섹션 -->
-    <section class="map-section">
+    <section class="cta-section">
         <div class="container">
-            <h2>오시는 길</h2>
-            <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d202282.78466172734!2d126.83646435!3d37.566535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca28b61c565cd%3A0x858aedb4e4ea83eb!2z7ISc7Jq47Yq567OE7IucIOyEueOFjeq1rA!5e0!3m2!1sko!2skr!4v1234567890123!5m2!1sko!2skr" 
-                    width="100%" 
-                    height="450" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
+            <h2>지금 바로 예약하세요</h2>
+            <p>최상의 힐링 경험을 제공해드립니다</p>
+            <a href="tel:+821012345678" class="btn btn-primary">전화 예약</a>
+            <a href="https://open.kakao.com/o/yourchat" class="btn btn-secondary">카카오톡 상담</a>
         </div>
     </section>
 
-    <!-- 푸터 -->
-    <footer id="contact">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>홈스윗</h3>
-                    <p>깨끗한 집, 행복한 삶을 만들어갑니다</p>
-                </div>
-                <div class="footer-section">
-                    <h3>연락처</h3>
-                    <p>📧 info@homesweet.kr</p>
-                    <p><a href="tel:010-XXXX-XXXX" class="contact-link">📞 010-XXXX-XXXX</a></p>
-                    <p><a href="https://open.kakao.com/o/YourKakaoLink" target="_blank" class="contact-link">💬 KakaoTalk 채팅</a></p>
-                </div>
-                <div class="footer-section">
-                    <h3>운영시간</h3>
-                    <p>월-금: 09:00 - 18:00</p>
-                    <p>토: 09:00 - 15:00</p>
-                    <p>일요일 및 공휴일 휴무</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 홈스윗. All rights reserved.</p>
+            <p>&copy; <span id="year"></span> KKMassage. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="about.html">회사소개</a> |
+                <a href="regions.html">서비스 지역</a> |
+                <a href="blog.html">블로그</a>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Dropdown and nav functionality
+        (function(){
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            if(navToggle && navMenu){
+                navToggle.addEventListener('click', () => navMenu.classList.toggle('open'));
+            }
+            // Toggle open class for items with submenu on small screens
+            function setupDropdownToggles(){
+                document.querySelectorAll('.has-dropdown > .drop-toggle').forEach(btn => {
+                    btn.addEventListener('click', function(e){
+                        const li = this.parentElement;
+                        if(window.innerWidth <= 900){
+                            e.preventDefault();
+                            li.classList.toggle('open');
+                        }
+                    });
+                });
+                document.querySelectorAll('.has-submenu > a').forEach(btn => {
+                    btn.addEventListener('click', function(e){
+                        const li = this.parentElement;
+                        if(window.innerWidth <= 900){
+                            e.preventDefault();
+                            li.classList.toggle('open');
+                        }
+                    });
+                });
+            }
+            setupDropdownToggles();
+            window.addEventListener('resize', setupDropdownToggles);
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-menu a').forEach(a => {
+                a.addEventListener('click', () => {
+                    const menu = document.getElementById('nav-menu');
+                    if(menu && menu.classList.contains('open')) menu.classList.remove('open');
+                });
+            });
+
+            // Set year
+            document.getElementById('year').textContent = new Date().getFullYear();
+        })();
+    </script>
 </body>
 </html>
