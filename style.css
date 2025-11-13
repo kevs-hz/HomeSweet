@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', Arial, sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+}
+
+/* Header & Navigation */
+header img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+nav {
+  background-color: #2d2d2d;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 15px;
+  display: block;
+}
+
+nav ul li a:hover {
+  background-color: #ffb74d;
+  color: #222;
+  border-radius: 5px;
+}
+
+/* Services */
+.services {
+  padding: 40px 20px;
+  background-color: #fafafa;
+}
+
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.service-item {
+  width: 300px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.service-item img {
+  border-radius: 6px;
+}
+
+/* Footer */
+footer {
+  background-color: #2d2d2d;
+  color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.contact-links a {
+  color: #ffcc80;
+  text-decoration: none;
+}
+
+.contact-links a:hover {
+  text-decoration: underline;
+}
+
+.map-container iframe {
+  border: none;
+  border-radius: 10px;
+}
+
+footer .copyright {
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-item {
+    width: 80%;
+  }
+}
