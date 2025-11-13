@@ -1,175 +1,561 @@
-/* 您的原有 CSS 保持不变... */
-
-/* 新增：两级下拉菜单样式（美观、纯CSS） */
-.dropdown {
-    position: relative;
-}
-
-.dropbtn {
-    text-decoration: none;
-    color: #222;
-    font-weight: 600;
-    padding: 6px 8px;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    min-width: 280px;
-    padding: 12px 0;
-    z-index: 1001;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown-section {
-    position: relative;
-    display: block;
-    padding: 0;
+/* General Body & Container */
+body {
+    font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', sans-serif;
+    line-height: 1.6;
     margin: 0;
-}
-
-.region-title {
-    display: block;
-    padding: 12px 16px;
+    padding: 0;
+    background: #f4f4f4;
     color: #333;
-    font-weight: 700;
-    font-size: 15px;
-    text-decoration: none;
-    border-bottom: 1px solid #f0f0f0;
-    transition: background 0.3s;
 }
 
-.region-title:hover {
-    background: #f8f9fa;
-    color: #007bff;
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+    overflow: hidden; /* Clear floats */
 }
 
-.sub-panel {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 100%;
-    margin-left: 10px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    min-width: 200px;
-    padding: 8px 0;
-    z-index: 1002;
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: opacity 0.3s, transform 0.3s;
-}
-
-.dropdown-section:hover .sub-panel {
-    display: block;
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.sub-panel a {
-    display: block;
-    padding: 10px 16px;
-    color: #555;
-    font-size: 14px;
-    text-decoration: none;
-    transition: background 0.3s, color 0.3s;
-}
-
-.sub-panel a:hover {
-    background: #f8f9fa;
-    color: #007bff;
-}
-
-/* 桌面网格布局（1-2列，根据内容） */
-@media (min-width: 768px) {
-    .dropdown-content {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 0;
-        padding: 8px;
-    }
-    .dropdown-section {
-        border: none;
-    }
-    .region-title {
-        border-bottom: none;
-        padding: 8px 12px;
-        text-align: center;
-    }
-}
-
-/* 移动端：一级展开，二级隐藏（点击 regions.html 查看详情） */
-@media (max-width: 767px) {
-    .nav-menu {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .dropdown-content {
-        position: static;
-        box-shadow: none;
-        background: #f8f9fa;
-        padding: 10px;
-        display: block;
-    }
-    .sub-panel {
-        display: none !important; /* 移动端不显示二级 */
-        position: static;
-        margin-left: 0;
-        box-shadow: none;
-    }
-    .region-title {
-        display: inline-block;
-        padding: 8px;
-        border: 1px solid #e0e0e0;
-        border-radius: 4px;
-        margin: 5px;
-        background: #fff;
-    }
-}
-
-/* 确保 nav 整体美观 */
+/* Navbar */
 .navbar {
     background: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    color: #333;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.navbar-container {
+.navbar .navbar-container { /* Ensure proper container usage */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 15px 20px;
 }
 
-.nav-menu {
-    display: flex;
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.navbar .nav-menu {
     list-style: none;
+    display: flex;
     margin: 0;
     padding: 0;
-    gap: 30px;
-    align-items: center;
 }
 
-.nav-menu a {
+.navbar .nav-menu li {
+    position: relative; /* For dropdown */
+}
+
+.navbar .nav-menu a {
     color: #333;
     text-decoration: none;
+    padding: 10px 15px;
+    display: block;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s, background-color 0.3s;
 }
 
-.nav-menu a:hover, .active {
+.navbar .nav-menu a:hover,
+.navbar .nav-menu a.active {
     color: #007bff;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+/* Dropdown specific styles */
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position right below the dropdown button */
+    left: 0;
+    background: #fff;
+    min-width: 300px; /* Adjusted for a better look */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1001;
+    border-radius: 5px;
+    padding: 10px 0;
+    border: 1px solid #eee;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    display: grid; /* Use grid for columns */
+    grid-template-columns: repeat(2, 1fr); /* Two columns on desktop */
+    gap: 5px; /* Spacing between columns */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-section {
+    position: relative;
+    padding: 5px 0;
+}
+
+.region-title {
+    color: #007bff;
+    font-weight: bold;
+    padding: 8px 15px;
+    display: block;
+    text-decoration: none;
+    background-color: #f0f8ff; /* Light blue background for titles */
+    border-radius: 3px;
+    margin: 0 5px;
+    transition: background-color 0.2s;
+}
+
+.region-title:hover {
+    background-color: #e0f0ff;
+    cursor: pointer;
+}
+
+.sub-panel {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 0;
+    left: 100%; /* Position to the right of the parent section */
+    background: #fff;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1002;
+    border-radius: 5px;
+    padding: 10px 0;
+    border: 1px solid #eee;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-section:hover .sub-panel {
+    display: block; /* Show on hover */
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.sub-panel a {
+    color: #555;
+    padding: 8px 15px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sub-panel a:hover {
+    background-color: #f2f2f2;
+    color: #007bff;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x500.png?text=Relaxing+Massage+Background') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero .lead {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #007bff;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #0056b3;
+}
+
+/* Services Section */
+.services {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.service-intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.service-intro p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-item {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.service-item .service-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.service-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.service-item .service-desc {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+    margin-top: 50px;
+    border-top: 1px solid #eee;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.contact-section .lead {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.contact-info a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer .footer-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.footer .footer-nav a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer .footer-nav a:hover {
+    color: #007bff;
+}
+
+/* About Page Specific Styles */
+.about-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x400.png?text=About+Us') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.about-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.about-hero .lead {
+    font-size: 1.1rem;
+}
+
+.about-main {
+    padding: 40px 0;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.about-text a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.about-text a:hover {
+    text-decoration: underline;
+}
+
+/* Blog Page Specific Styles */
+.blog-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1500x400.png?text=Blog') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.blog-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.blog-hero .lead {
+    font-size: 1.1rem;
+}
+
+.blog-no-posts {
+    text-align: center;
+    padding: 50px 0;
+    font-size: 1.2rem;
+    color: #777;
+}
+
+/* Regions Page Specific Styles */
+.region-selection-main {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.region-selector-wrapper h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.region-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.region-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.region-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.region-card h3 {
+    font-size: 1.6rem;
+    color: #007bff;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+}
+
+.region-card p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.selected-region-display {
+    background: #e9ecef;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    display: none; /* Hide by default */
+    margin-top: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar .nav-menu {
+        gap: 15px;
+    }
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    .hero .lead {
+        font-size: 1.1rem;
+    }
+    .service-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    /* Adjust dropdown for smaller desktops/tablets */
+    .dropdown:hover .dropdown-content {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        min-width: 260px;
+    }
+    .sub-panel {
+        min-width: 160px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar .nav-menu {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 15px;
+        gap: 5px;
+    }
+    .navbar .nav-menu li {
+        width: 100%;
+    }
+    .navbar .nav-menu a {
+        text-align: left;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+    .navbar .nav-menu a:hover,
+    .navbar .nav-menu a.active {
+        background-color: transparent;
+        color: #007bff;
+    }
+
+    /* Dropdown on mobile - make it full width and stack */
+    .dropdown-content {
+        position: static; /* Remove absolute positioning */
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        padding: 5px 0;
+        grid-template-columns: 1fr; /* Stack columns */
+        opacity: 1; /* Always visible if dropdown is active */
+        transform: translateY(0);
+        margin-top: 5px;
+        background-color: #f8f8f8; /* Light background for visibility */
+    }
+
+    .dropdown-section {
+        border-bottom: 1px solid #eee;
+        margin: 0 10px;
+        padding: 5px 0;
+    }
+
+    .region-title {
+        background-color: transparent; /* No special background */
+        text-align: left;
+        margin: 0;
+        border-radius: 0;
+        padding: 10px 0;
+        color: #333; /* Default color */
+    }
+    .region-title:hover {
+        color: #007bff;
+        background-color: transparent;
+    }
+
+    .sub-panel {
+        position: static; /* Remove absolute positioning */
+        width: auto;
+        left: auto;
+        margin-left: 15px; /* Indent sub-panel */
+        box-shadow: none;
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        opacity: 1; /* Always visible if parent is hovered (on desktop) / active (on mobile) */
+        transform: translateX(0);
+    }
+
+    .sub-panel a {
+        padding: 5px 0;
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        padding: 60px 0;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .hero .lead {
+        font-size: 1rem;
+    }
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-hero, .blog-hero {
+        padding: 50px 0;
+    }
+    .about-hero h1, .blog-hero h1 {
+        font-size: 2.5rem;
+    }
 }
