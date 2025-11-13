@@ -1,961 +1,175 @@
-/* General Body and HTML */
-body {
-    font-family: 'Noto Sans KR', sans-serif; /* 한국어 폰트 추가 */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
-}
+/* 您的原有 CSS 保持不变... */
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Navigation Bar */
-nav {
-    background-color: #fff;
-    padding: 15px 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: #3f51b5; /* 브랜드 색상 */
-    text-decoration: none;
-}
-
-.nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-}
-
-.nav-links li {
-    margin-left: 30px;
-    position: relative;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #555;
-    font-weight: 600;
-    font-size: 17px;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #3f51b5;
-}
-
-/* Dropdown Menu Styles */
+/* 新增：两级下拉菜单样式（美观、纯CSS） */
 .dropdown {
     position: relative;
-    display: inline-block;
 }
 
 .dropbtn {
-    color: #555;
-    font-weight: 600;
-    font-size: 17px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
     text-decoration: none;
+    color: #222;
+    font-weight: 600;
+    padding: 6px 8px;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #fff;
-    min-width: 250px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    z-index: 1;
-    top: 100%;
+    top: calc(100% + 8px);
     left: 0;
+    background: #fff;
     border-radius: 8px;
-    overflow: hidden;
-    margin-top: 5px;
-}
-
-.dropdown-content a {
-    color: #555 !important;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    margin: 0;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.dropdown-content a:hover {
-    background-color: #f1f1f1;
-    color: #3f51b5 !important;
-}
-
-.dropdown-section {
-    padding: 10px 0;
-}
-
-.dropdown-section h4 {
-    padding: 10px 16px;
-    margin: 0;
-    font-size: 16px;
-    color: #3f51b5;
-    background-color: #f9f9f9;
-    font-weight: bold;
-    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    min-width: 280px;
+    padding: 12px 0;
+    z-index: 1001;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* Hero Section */
-.hero {
+.dropdown-section {
     position: relative;
-    text-align: center;
-    color: #fff;
-    height: 600px; /* 고정 높이 */
-    overflow: hidden; /* 이미지 넘침 방지 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    padding: 0;
+    margin: 0;
 }
 
-.hero-image {
+.region-title {
+    display: block;
+    padding: 12px 16px;
+    color: #333;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.3s;
+}
+
+.region-title:hover {
+    background: #f8f9fa;
+    color: #007bff;
+}
+
+.sub-panel {
+    display: none;
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 이미지가 잘리지 않고 전체를 채우도록 */
-    filter: brightness(60%); /* 이미지 어둡게 */
+    left: 100%;
+    margin-left: 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    min-width: 200px;
+    padding: 8px 0;
+    z-index: 1002;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.3s, transform 0.3s;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    padding: 20px;
+.dropdown-section:hover .sub-panel {
+    display: block;
+    opacity: 1;
+    transform: translateX(0);
 }
 
-.hero h1 {
-    font-size: 56px;
-    margin-bottom: 20px;
-    font-weight: 800;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.hero p {
-    font-size: 24px;
-    margin-bottom: 40px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-}
-
-.cta-button {
-    background-color: #4CAF50; /* 긍정적인 액션 색상 */
-    color: #fff;
-    padding: 15px 35px;
-    border-radius: 50px;
+.sub-panel a {
+    display: block;
+    padding: 10px 16px;
+    color: #555;
+    font-size: 14px;
     text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background 0.3s, color 0.3s;
 }
 
-.cta-button:hover {
-    background-color: #45a049;
-    transform: translateY(-3px);
+.sub-panel a:hover {
+    background: #f8f9fa;
+    color: #007bff;
 }
 
-/* Services Section */
-.services {
-    padding: 80px 0;
-    text-align: center;
-    background-color: #f0f2f5;
-}
-
-.services h2 {
-    font-size: 38px;
-    color: #333;
-    margin-bottom: 60px;
-    position: relative;
-}
-.services h2::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -15px;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 4px;
-    background-color: #3f51b5;
-    border-radius: 2px;
-}
-
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.service-card {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-    overflow: hidden; /* 이미지 둥근 모서리 적용을 위해 */
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
-
-.service-image {
-    width: 100%; /* 부모 너비에 맞춤 */
-    height: 200px; /* 고정 높이 */
-    object-fit: cover; /* 이미지가 잘리지 않고 채우도록 */
-    border-radius: 10px; /* 이미지 둥근 모서리 */
-    margin-bottom: 20px;
-}
-
-.service-icon {
-    font-size: 50px;
-    color: #3f51b5;
-    margin-bottom: 20px;
-}
-
-.service-card h3 {
-    font-size: 26px;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.service-card p {
-    font-size: 17px;
-    color: #666;
-    line-height: 1.7;
-}
-
-/* Features Section */
-.features {
-    padding: 80px 0;
-    text-align: center;
-    background-color: #fff;
-}
-
-.features h2 {
-    font-size: 38px;
-    color: #333;
-    margin-bottom: 60px;
-    position: relative;
-}
-.features h2::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -15px;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 4px;
-    background-color: #3f51b5;
-    border-radius: 2px;
-}
-
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-}
-
-.feature-item {
-    background-color: #f9f9f9;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.feature-item:hover {
-    transform: translateY(-5px);
-}
-
-.feature-icon {
-    font-size: 45px;
-    color: #3f51b5;
-    margin-bottom: 20px;
-}
-
-.feature-item h3 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.feature-item p {
-    font-size: 16px;
-    color: #666;
-}
-
-/* Page Header (for About, Blog, Regions) */
-.page-header {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://github.com/kevs-hz/HomeSweet/raw/main/Blog.jpg') no-repeat center center/cover;
-    color: #fff;
-    text-align: center;
-    padding: 100px 20px;
-    margin-bottom: 50px;
-}
-
-.page-header h1 {
-    font-size: 48px;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-.page-header p {
-    font-size: 22px;
-    font-weight: 300;
-}
-
-/* About Content */
-.about-content {
-    padding: 50px 0;
-    background-color: #fff;
-}
-
-.about-section {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 80px;
-}
-
-.about-image {
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px; /* Added max-width for better control */
-    margin-right: 40px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    height: auto; /* Ensure image scales correctly */
-}
-
-.about-text {
-    flex: 2;
-    min-width: 300px;
-}
-
-.about-text h2 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.about-text p {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 15px;
-    line-height: 1.8;
-}
-
-.mission-vision {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-bottom: 80px;
-}
-
-.mission-card {
-    flex: 1;
-    min-width: 300px;
-    background-color: #e8f5e9; /* 연한 녹색 배경 */
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-    text-align: center;
-}
-
-.mission-card h3 {
-    font-size: 28px;
-    color: #2e7d32; /* 진한 녹색 */
-    margin-bottom: 15px;
-}
-
-.mission-card p {
-    font-size: 17px;
-    color: #444;
-}
-
-.values-section h2, .team-section h2 {
-    font-size: 38px;
-    text-align: center;
-    color: #333;
-    margin-bottom: 60px;
-    position: relative;
-}
-.values-section h2::after, .team-section h2::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -15px;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 4px;
-    background-color: #3f51b5;
-    border-radius: 2px;
-}
-
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    margin-bottom: 80px;
-}
-
-.value-item {
-    background-color: #f5f5f5;
-    padding: 25px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-.value-icon {
-    font-size: 40px;
-    color: #3f51b5;
-    margin-bottom: 15px;
-}
-
-.value-item h3 {
-    font-size: 22px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.value-item p {
-    font-size: 15px;
-    color: #666;
-}
-
-.team-intro {
-    text-align: center;
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 40px;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    text-align: center;
-}
-
-.stat-item {
-    background-color: #e3f2fd; /* 연한 파랑 배경 */
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-}
-
-.stat-number {
-    font-size: 56px;
-    font-weight: bold;
-    color: #1976d2; /* 진한 파랑 */
-    margin-bottom: 10px;
-}
-
-.stat-item p {
-    font-size: 18px;
-    color: #333;
-}
-
-/* Blog List */
-.blog-list {
-    padding: 50px 0;
-    background-color: #fff;
-}
-
-.blog-post {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 60px;
-    background-color: #fefefe;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    overflow: hidden;
-}
-
-.blog-image {
-    width: 40%;
-    height: 300px; /* 고정 높이 */
-    object-fit: cover;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-}
-
-.blog-content {
-    width: 60%;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.blog-content h2 {
-    font-size: 32px;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.blog-content h2 a {
-    text-decoration: none;
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.blog-content h2 a:hover {
-    color: #3f51b5;
-}
-
-.blog-meta {
-    font-size: 15px;
-    color: #888;
-    margin-bottom: 20px;
-}
-
-.blog-content p {
-    font-size: 17px;
-    color: #555;
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
-
-.read-more {
-    display: inline-block;
-    background-color: #3f51b5;
-    color: #fff;
-    padding: 10px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-}
-
-.read-more:hover {
-    background-color: #303f9f;
-}
-
-/* Regions Content */
-.regions-content {
-    padding: 50px 0;
-    background-color: #fff;
-}
-
-.region-info {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 80px;
-}
-
-.region-image {
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-    margin-right: 40px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    height: auto;
-}
-
-.region-text {
-    flex: 2;
-    min-width: 300px;
-}
-
-.region-text h2 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.region-text p {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 15px;
-    line-height: 1.8;
-}
-
-.region-list-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 80px;
-}
-
-.region-card {
-    background-color: #e0f2f7; /* 연한 파랑-녹색 배경 */
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-}
-
-.region-card h3 {
-    font-size: 28px;
-    color: #0288d1; /* 진한 파랑-녹색 */
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.region-card ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.region-card li {
-    font-size: 17px;
-    color: #444;
-    margin-bottom: 10px;
-    position: relative;
-    padding-left: 25px;
-}
-
-.region-card li::before {
-    content: '✅';
-    position: absolute;
-    left: 0;
-    color: #0288d1;
-}
-
-.expansion-info {
-    text-align: center;
-    background-color: #fff3e0; /* 연한 주황 배경 */
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-    margin-bottom: 50px;
-}
-
-.expansion-info h2 {
-    font-size: 32px;
-    color: #e65100; /* 진한 주황 */
-    margin-bottom: 20px;
-}
-
-.expansion-info p {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 30px;
-}
-
-/* Google Map Section */
-.map-section {
-    padding: 80px 0;
-    background-color: #f0f2f5;
-    text-align: center;
-}
-
-.map-section h2 {
-    font-size: 38px;
-    color: #333;
-    margin-bottom: 60px;
-    position: relative;
-}
-.map-section h2::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: -15px;
-    transform: translateX(-50%);
-    width: 70px;
-    height: 4px;
-    background-color: #3f51b5;
-    border-radius: 2px;
-}
-
-.map-container {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-}
-
-.map-container iframe {
-    border-radius: 10px;
-}
-
-.map-note {
-    font-size: 15px;
-    color: #777;
-    margin-top: 15px;
-}
-
-
-/* Footer */
-footer {
-    background-color: #333;
-    color: #f4f4f4;
-    padding: 60px 0 30px;
-    font-size: 16px;
-}
-
-footer .container {
-    padding-top: 20px;
-}
-
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 40px;
-}
-
-.footer-section {
-    flex: 1;
-    min-width: 280px;
-    margin-bottom: 30px;
-    padding: 0 20px;
-}
-
-.footer-section h3 {
-    font-size: 24px;
-    color: #fff;
-    margin-bottom: 25px;
-    font-weight: 600;
-}
-
-.footer-section p {
-    margin-bottom: 10px;
-    color: #ccc;
-    line-height: 1.7;
-}
-
-.footer-section a {
-    color: #4CAF50; /* 연락처 링크 색상 */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section a:hover {
-    color: #fff;
-}
-
-.contact-link {
-    display: inline-block;
-    margin-bottom: 5px;
-}
-
-
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid #444;
-    padding-top: 25px;
-    font-size: 15px;
-    color: #aaa;
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    .nav-links li {
-        margin-left: 20px;
+/* 桌面网格布局（1-2列，根据内容） */
+@media (min-width: 768px) {
+    .dropdown-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0;
+        padding: 8px;
     }
-
-    .hero h1 {
-        font-size: 48px;
+    .dropdown-section {
+        border: none;
     }
-
-    .hero p {
-        font-size: 20px;
+    .region-title {
+        border-bottom: none;
+        padding: 8px 12px;
+        text-align: center;
     }
+}
 
-    .service-card, .feature-item, .value-item, .stat-item {
-        padding: 25px;
-    }
-
-    .about-image, .region-image {
-        margin-right: 0;
-        margin-bottom: 30px;
-        max-width: 100%;
-    }
-
-    .about-section, .region-info {
+/* 移动端：一级展开，二级隐藏（点击 regions.html 查看详情） */
+@media (max-width: 767px) {
+    .nav-menu {
         flex-direction: column;
+        gap: 10px;
     }
-
-    .blog-post {
-        flex-direction: column;
-    }
-
-    .blog-image {
-        width: 100%;
-        height: 250px;
-        border-radius: 15px 15px 0 0;
-    }
-
-    .blog-content {
-        width: 100%;
-        padding: 25px;
-    }
-
-    /* Dropdown responsive */
     .dropdown-content {
         position: static;
         box-shadow: none;
-        background-color: #f9f9f9;
-        margin-top: 10px;
-        width: 100%;
+        background: #f8f9fa;
+        padding: 10px;
+        display: block;
     }
-
-    .dropdown-section {
-        border-top: 1px solid #e0e0e0;
+    .sub-panel {
+        display: none !important; /* 移动端不显示二级 */
+        position: static;
+        margin-left: 0;
+        box-shadow: none;
     }
-}
-
-@media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
-    }
-
-    nav .container {
-        flex-direction: column;
-    }
-
-    .nav-links {
-        margin-top: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .nav-links li {
-        margin: 0 15px 10px 15px;
-    }
-
-    .logo {
-        font-size: 24px;
-    }
-
-    .hero {
-        height: 450px;
-    }
-
-    .hero h1 {
-        font-size: 38px;
-    }
-
-    .hero p {
-        font-size: 18px;
-    }
-
-    .cta-button {
-        padding: 12px 30px;
-        font-size: 18px;
-    }
-
-    .services h2, .features h2, .page-header h1,
-    .about-text h2, .values-section h2, .team-section h2,
-    .region-text h2, .expansion-info h2, .map-section h2 {
-        font-size: 32px;
-        margin-bottom: 40px;
-    }
-
-    .page-header {
-        padding: 80px 15px;
-    }
-    .page-header p {
-        font-size: 18px;
-    }
-
-    .mission-vision, .values-grid, .stats-grid, .region-list-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .blog-content h2 {
-        font-size: 26px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .footer-section {
-        min-width: unset;
-        padding: 0;
-    }
-
-    /* Dropdown on mobile */
-    .dropdown-content {
-        display: none; /* Hide on mobile, use JS if needed for toggle */
+    .region-title {
+        display: inline-block;
+        padding: 8px;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        margin: 5px;
+        background: #fff;
     }
 }
 
-@media (max-width: 480px) {
-    .nav-links {
-        flex-wrap: wrap;
-        margin-top: 15px;
-    }
-    .nav-links li {
-        margin: 5px 10px;
-    }
+/* 确保 nav 整体美观 */
+.navbar {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-    .hero {
-        height: 350px;
-    }
-    .hero h1 {
-        font-size: 30px;
-    }
-    .hero p {
-        font-size: 16px;
-    }
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
 
-    .services h2, .features h2, .page-header h1,
-    .about-text h2, .values-section h2, .team-section h2,
-    .region-text h2, .expansion-info h2, .map-section h2 {
-        font-size: 28px;
-        margin-bottom: 30px;
-    }
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+    align-items: center;
+}
 
-    .service-card, .feature-item, .value-item, .stat-item, .mission-card, .region-card {
-        padding: 20px;
-    }
+.nav-menu a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
 
-    .service-icon, .feature-icon, .value-icon {
-        font-size: 40px;
-    }
-
-    .service-card h3, .feature-item h3, .value-item h3, .mission-card h3, .region-card h3 {
-        font-size: 20px;
-    }
-
-    .stat-number {
-        font-size: 48px;
-    }
-
-    .blog-content h2 {
-        font-size: 22px;
-    }
+.nav-menu a:hover, .active {
+    color: #007bff;
 }
