@@ -14,13 +14,52 @@
             <ul class="nav-links">
                 <li><a href="index.html">홈</a></li>
                 <li><a href="about.html">회사소개</a></li>
-                <li><a href="regions.html">서비스 지역</a></li>
+                <li class="dropdown">
+                    <a href="regions.html" class="dropbtn">서비스 지역</a>
+                    <div class="dropdown-content">
+                        <div class="dropdown-section">
+                            <h4>서울특별시</h4>
+                            <a href="regions.html#seoul">강남구</a>
+                            <a href="regions.html#seoul">서초구</a>
+                            <a href="regions.html#seoul">송파구</a>
+                            <a href="regions.html#seoul">용산구</a>
+                            <a href="regions.html#seoul">마포구</a>
+                            <a href="regions.html#seoul">영등포구</a>
+                            <a href="regions.html#seoul">종로구</a>
+                            <a href="regions.html#seoul">중구</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>경기도</h4>
+                            <a href="regions.html#gyeonggi">성남시 (분당구 등)</a>
+                            <a href="regions.html#gyeonggi">고양시 (일산동구 등)</a>
+                            <a href="regions.html#gyeonggi">수원시 (영통구 등)</a>
+                            <a href="regions.html#gyeonggi">용인시 (수지구 등)</a>
+                            <a href="regions.html#gyeonggi">하남시</a>
+                            <a href="regions.html#gyeonggi">과천시</a>
+                            <a href="regions.html#gyeonggi">광명시</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>인천광역시</h4>
+                            <a href="regions.html#incheon">연수구</a>
+                            <a href="regions.html#incheon">남동구</a>
+                            <a href="regions.html#incheon">부평구</a>
+                            <a href="regions.html#incheon">계양구</a>
+                        </div>
+                        <div class="dropdown-section">
+                            <h4>기타 주요 지역</h4>
+                            <a href="regions.html#other">부산광역시 (해운대구 등)</a>
+                            <a href="regions.html#other">대구광역시 (중구 등)</a>
+                            <a href="regions.html#other">대전광역시 (유성구 등)</a>
+                            <a href="regions.html#other">광주광역시 (남구 등)</a>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="blog.html">블로그</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- 서비스 지역 헤더 -->
+    <!-- 服务 지역 헤더 -->
     <section class="page-header">
         <div class="container">
             <h1>서비스 지역</h1>
@@ -28,10 +67,10 @@
         </div>
     </section>
 
-    <!-- 서비스 지역 목록 -->
+    <!-- 服务 지역 목록 -->
     <section class="regions-content">
         <div class="container">
-            <div class="region-info">
+            <div class="region-info" id="seoul">
                 <img src="https://github.com/kevs-hz/HomeSweet/raw/main/Region.jpg" alt="서비스 지역 지도" class="region-image">
                 <div class="region-text">
                     <h2>서울 전 지역</h2>
@@ -40,7 +79,7 @@
                 </div>
             </div>
 
-            <div class="region-list-grid">
+            <div class="region-list-grid" id="gyeonggi">
                 <div class="region-card">
                     <h3>경기도 일부 지역</h3>
                     <ul>
@@ -51,7 +90,7 @@
                         <li>하남시, 과천시, 광명시</li>
                     </ul>
                 </div>
-                <div class="region-card">
+                <div class="region-card" id="incheon">
                     <h3>인천광역시 일부 지역</h3>
                     <ul>
                         <li>연수구, 남동구, 부평구, 계양구</li>
@@ -60,7 +99,7 @@
                 </div>
             </div>
 
-            <div class="expansion-info">
+            <div class="expansion-info" id="other">
                 <h2>서비스 지역 확대 예정</h2>
                 <p>더 많은 고객님께 홈스윗의 서비스를 제공하기 위해 지속적으로 서비스 가능 지역을 확대해 나갈 예정입니다. 원하시는 지역이 현재 목록에 없다면, 저희에게 문의해 주세요. 고객님의 의견을 적극 반영하여 지역 확대 계획에 참고하겠습니다.</p>
                 <a href="#contact" class="cta-button">서비스 가능 여부 문의하기</a>
